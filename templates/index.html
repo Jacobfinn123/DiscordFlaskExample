@@ -1,0 +1,19 @@
+<html lang="en">
+	<head>
+		<title>index</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+	</head>
+
+	<body bgcolor="#e6ffee">
+		<div>
+			{% if user %}
+				<img src="{{user.avatar}}">
+				<p>Logged in as {{user.name}}</p>
+				<p>Discord ID: {{user.user_id}}</p>
+				<a href="/logout"><button>Logout</button></a>
+			{% else %}
+				<a href="{{oauth_url}}"><button>Login via Discord</button></a>
+			{% endif %}
+		</div>
+	</body>
+</html>
